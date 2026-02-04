@@ -230,7 +230,6 @@
         .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         
         .event-card { position: relative; height: 400px; overflow: hidden; border: 1px solid #333; }
-        /* Using Stock Images as requested */
         .event-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; opacity: 0.8; }
         .event-card:hover img { transform: scale(1.15); opacity: 0.5; }
         
@@ -255,7 +254,6 @@
         .wedding-img {
             flex: 1;
             min-width: 400px;
-            /* Stock Image */
             background: url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover;
             min-height: 500px;
             filter: saturate(1.1); 
@@ -271,29 +269,28 @@
         .wedding-content h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
         .wedding-content p { margin-bottom: 30px; color: #ccc; }
         
-        /* --- About Founders --- */
+        /* --- About Founders (UPDATED) --- */
         .founders-section { padding: 100px 50px; background-color: var(--card-bg); }
-        .founders-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .founders-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .founders-header p { color: #ccc; }
+
+        .founder-row {
+            display: flex;
+            align-items: center;
             gap: 60px;
             max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
+            margin: 0 auto 60px auto;
+            border-bottom: 1px solid #333;
+            padding-bottom: 60px;
         }
+        .founder-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
-        .founder-text h2 { margin-bottom: 30px; font-size: 2.5rem; }
-        .founder-bio { margin-bottom: 40px; border-left: 3px solid var(--gold); padding-left: 20px; }
-        .founder-bio h4 { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
-        .founder-bio span { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 15px; }
-        .founder-bio p { font-size: 0.95rem; color: #bbb; }
+        .founder-info { flex: 1; }
+        .founder-info h4 { font-size: 2rem; margin-bottom: 5px; color: #fff; font-family: 'Playfair Display', serif; }
+        .founder-info span { color: var(--gold); display: block; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .founder-info p { color: #bbb; line-height: 1.8; }
 
-        .founder-images { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-        }
-        
+        .founder-img-wrapper { flex: 1; }
         .founder-img-card {
             background-color: #222;
             height: 400px;
@@ -311,7 +308,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             transition: transform 0.4s;
         }
-        
         .founder-img-card:hover { transform: translateY(-5px); }
 
         .founder-name-box {
@@ -337,7 +333,6 @@
         @media (max-width: 900px) {
             .hero h1 { font-size: 2.8rem; }
             .dining-text h2 { font-size: 2.5rem; }
-            .founders-grid { grid-template-columns: 1fr; }
             .wedding-section { flex-direction: column; }
             .wedding-img, .wedding-content { min-width: 100%; }
         }
@@ -357,7 +352,12 @@
             .dining-features { grid-template-columns: 1fr; }
             .rooms-grid, .events-grid, .triangle-grid { grid-template-columns: 1fr; }
             
-            .founder-images { grid-template-columns: 1fr; }
+            /* FOUNDER MOBILE FIX */
+            .founder-row { 
+                flex-direction: column-reverse; /* Puts image ON TOP of text */
+                text-align: center;
+                gap: 30px;
+            }
             .founder-img-card { height: 350px; }
             
             .wedding-content h2 { font-size: 2rem; }
@@ -560,30 +560,33 @@
     </section>
 
     <section class="founders-section">
-        <div class="founders-grid">
-            <div class="founder-text">
-                <h2>The Visionaries Behind The Brand</h2>
-                <p style="margin-bottom:40px; color:#ccc;">The Colombo Edition was founded in 2022 by Nirmal & Hannah Vivekananthan with a singular, bold ambition: to make hospitality great again.</p>
-                
-                <div class="founder-bio">
-                    <h4>Nirmal Vivekananthan</h4>
-                    <span>Founder & CEO</span>
-                    <p>With over 21 years of high-impact experience, Nirmal is a veteran of the industry. Having served as Head of Finance for <strong>Criterion</strong> and Vice President for <strong>Selina</strong> (EMEA), he has managed finance & operations for global giants like <strong>Hilton, Accor, and IHG</strong>. Nirmal ensures The Warwick operates with world-class efficiency, passing the value directly to our guests.</p>
-                </div>
+        <div class="founders-header">
+            <h2>The Visionaries Behind The Brand</h2>
+            <p>The Colombo Edition was founded in 2022 by Nirmal & Hannah Vivekananthan with a singular, bold ambition: to make hospitality great again.</p>
+        </div>
 
-                <div class="founder-bio">
-                    <h4>Hannah Vivekananthan</h4>
-                    <span>Managing Partner</span>
-                    <p>Hannah is the soul of the Colombo Edition. While Nirmal drives financial & operational excellence, Hannah ensures the guest experience remains warm, personal, and family-oriented. Together, they are revitalizing this local landmark.</p>
-                </div>
+        <div class="founder-row">
+            <div class="founder-info">
+                <h4>Nirmal Vivekananthan</h4>
+                <span>Founder & CEO</span>
+                <p>With over 21 years of high-impact experience, Nirmal is a veteran of the industry. Having served as Head of Finance for <strong>Criterion</strong> and Vice President for <strong>Selina</strong> (EMEA), he has managed finance & operations for global giants like <strong>Hilton, Accor, and IHG</strong>. Nirmal ensures The Warwick operates with world-class efficiency, passing the value directly to our guests.</p>
             </div>
-
-            <div class="founder-images">
+            <div class="founder-img-wrapper">
                 <div class="founder-img-card" style="background-image: url('Nirmal.jpg');">
                     <div class="founder-name-box">
                         <p>Nirmal<br>Vivekananthan</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="founder-row">
+            <div class="founder-info">
+                <h4>Hannah Vivekananthan</h4>
+                <span>Managing Partner</span>
+                <p>Hannah is the soul of the Colombo Edition. While Nirmal drives financial & operational excellence, Hannah ensures the guest experience remains warm, personal, and family-oriented. Together, they are revitalizing this local landmark.</p>
+            </div>
+            <div class="founder-img-wrapper">
                 <div class="founder-img-card" style="background-image: url('Hannah.jpg');">
                     <div class="founder-name-box">
                         <p>Hannah<br>Vivekananthan</p>
@@ -591,6 +594,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <footer id="contact">
