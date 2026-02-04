@@ -404,6 +404,15 @@
             
             .wedding-content h2 { font-size: 2rem; }
         }
+/* --- FIX FOR IPAD / IPHONE BACKGROUNDS --- */
+        /* This detects touch devices and tablets */
+        @media (hover: none), (max-width: 1366px) {
+            .hero, .dining-section {
+                background-attachment: scroll !important;
+                background-size: cover;
+                background-position: center;
+            }
+        }
     </style>
 </head>
 <body>
