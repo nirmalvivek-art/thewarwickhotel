@@ -269,31 +269,52 @@
         .wedding-content h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
         .wedding-content p { margin-bottom: 30px; color: #ccc; }
         
-        /* --- About Founders (UPDATED) --- */
+ /* --- Founders Section (PORTRAIT FIX) --- */
         .founders-section { padding: 100px 50px; background-color: var(--card-bg); }
-        .founders-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .founders-header { text-align: center; margin-bottom: 80px; max-width: 800px; margin-left: auto; margin-right: auto; }
         .founders-header p { color: #ccc; }
+        
+        .founders-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
 
         .founder-row {
             display: flex;
             align-items: center;
             gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto 60px auto;
-            border-bottom: 1px solid #333;
-            padding-bottom: 60px;
+            justify-content: space-between;
         }
-        .founder-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        
-        .founder-info { flex: 1; }
-        .founder-info h4 { font-size: 2rem; margin-bottom: 5px; color: #fff; font-family: 'Playfair Display', serif; }
-        .founder-info span { color: var(--gold); display: block; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
-        .founder-info p { color: #bbb; line-height: 1.8; }
 
-        .founder-img-wrapper { flex: 1; }
+        /* Zig-Zag layout for PC */
+        .founder-row.reverse-layout {
+            flex-direction: row-reverse;
+        }
+        
+        .founder-info { flex: 1; text-align: left; }
+        .founder-info h4 { font-size: 2.2rem; margin-bottom: 5px; color: #fff; font-family: 'Playfair Display', serif; }
+        .founder-info span { color: var(--gold); display: block; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: 600; }
+        .founder-info p { color: #bbb; line-height: 1.8; font-size: 1rem; }
+
+        /* Centers the portrait image in its column */
+        .founder-img-wrapper { 
+            flex: 1; 
+            width: 100%; 
+            display: flex; 
+            justify-content: center; 
+        }
+        
+        /* THE PORTRAIT FIX */
         .founder-img-card {
+            width: 100%;
+            max-width: 400px; /* Limits width so it doesn't look huge on PC */
+            aspect-ratio: 2/3; /* Forces a Portrait (Vertical) shape */
+            height: auto;      /* Height adjusts automatically based on width */
+            
             background-color: #222;
-            height: 400px;
             border: 1px solid var(--gold);
             display: flex;
             align-items: center;
@@ -301,24 +322,45 @@
             color: #fff;
             flex-direction: column;
             text-align: center;
-            background-size: cover;
-            background-position: top center;
+            
+            /* Crucial for Natural Look */
+            background-size: cover; 
+            background-position: center top; /* Focuses on the face/top of image */
+            
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             transition: transform 0.4s;
+            border-radius: 4px;
         }
-        .founder-img-card:hover { transform: translateY(-5px); }
+        .founder-img-card:hover { transform: scale(1.02); border-color: #fff; }
 
         .founder-name-box {
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 30px 10px 15px 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            padding: 40px 10px 20px 10px;
         }
         .founder-name-box p {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             line-height: 1.1;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 900px) {
+            .founder-row, .founder-row.reverse-layout {
+                flex-direction: column-reverse; /* Text bottom, Image top */
+                text-align: center;
+                gap: 30px;
+            }
+            .founder-info { text-align: center; }
+            
+            /* On mobile, we let the image be a comfortable portrait size */
+            .founder-img-card { 
+                max-width: 350px; /* Perfect width for mobile screens */
+            }
         }
 
         /* --- Footer --- */
@@ -565,36 +607,37 @@
             <p>The Colombo Edition was founded in 2022 by Nirmal & Hannah Vivekananthan with a singular, bold ambition: to make hospitality great again.</p>
         </div>
 
-        <div class="founder-row">
-            <div class="founder-info">
-                <h4>Nirmal Vivekananthan</h4>
-                <span>Founder & CEO</span>
-                <p>With over 21 years of high-impact experience, Nirmal is a veteran of the industry. Having served as Head of Finance for <strong>Criterion</strong> and Vice President for <strong>Selina</strong> (EMEA), he has managed finance & operations for global giants like <strong>Hilton, Accor, and IHG</strong>. Nirmal ensures The Warwick operates with world-class efficiency, passing the value directly to our guests.</p>
+        <div class="founders-container">
+            <div class="founder-row">
+                <div class="founder-info">
+                    <h4>Nirmal Vivekananthan</h4>
+                    <span>Founder & CEO</span>
+                    <p>With over 21 years of high-impact experience, Nirmal is a veteran of the industry. Having served as Head of Finance for <strong>Criterion</strong> and Vice President for <strong>Selina</strong> (EMEA), he has managed finance & operations for global giants like <strong>Hilton, Accor, and IHG</strong>. Nirmal ensures The Warwick operates with world-class efficiency, passing the value directly to our guests.</p>
+                </div>
+                <div class="founder-img-wrapper">
+                    <div class="founder-img-card" style="background-image: url('Nirmal.jpg');">
+                        <div class="founder-name-box">
+                            <p>Nirmal<br>Vivekananthan</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="founder-img-wrapper">
-                <div class="founder-img-card" style="background-image: url('Nirmal.jpg');">
-                    <div class="founder-name-box">
-                        <p>Nirmal<br>Vivekananthan</p>
+
+            <div class="founder-row reverse-layout">
+                <div class="founder-info">
+                    <h4>Hannah Vivekananthan</h4>
+                    <span>Managing Partner</span>
+                    <p>Hannah is the soul of the Colombo Edition. While Nirmal drives financial & operational excellence, Hannah ensures the guest experience remains warm, personal, and family-oriented. Together, they are revitalizing this local landmark.</p>
+                </div>
+                <div class="founder-img-wrapper">
+                    <div class="founder-img-card" style="background-image: url('Hannah.jpg');">
+                        <div class="founder-name-box">
+                            <p>Hannah<br>Vivekananthan</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="founder-row">
-            <div class="founder-info">
-                <h4>Hannah Vivekananthan</h4>
-                <span>Managing Partner</span>
-                <p>Hannah is the soul of the Colombo Edition. While Nirmal drives financial & operational excellence, Hannah ensures the guest experience remains warm, personal, and family-oriented. Together, they are revitalizing this local landmark.</p>
-            </div>
-            <div class="founder-img-wrapper">
-                <div class="founder-img-card" style="background-image: url('Hannah.jpg');">
-                    <div class="founder-name-box">
-                        <p>Hannah<br>Vivekananthan</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </section>
 
     <footer id="contact">
