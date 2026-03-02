@@ -21,7 +21,7 @@
 
         /* --- STICKY NAV FIX --- */
         html { scroll-behavior: smooth; }
-        section, footer, #about, #rooms, #dining, #events, #weddings { scroll-margin-top: 100px; }
+        section, footer, #about, #rooms, #dining, #events, #weddings, #vision { scroll-margin-top: 100px; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -269,98 +269,29 @@
         .wedding-content h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
         .wedding-content p { margin-bottom: 30px; color: #ccc; }
         
- /* --- Founders Section (PORTRAIT FIX) --- */
-        .founders-section { padding: 100px 50px; background-color: var(--card-bg); }
-        .founders-header { text-align: center; margin-bottom: 80px; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .founders-header p { color: #ccc; }
-        
-        .founders-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
+        /* --- Our Vision Section --- */
+        .vision-section { 
+            padding: 100px 20px; 
+            text-align: center; 
+            background-color: var(--card-bg); 
         }
-
-        .founder-row {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            justify-content: space-between;
+        .vision-section h2 { 
+            font-size: 2.8rem; 
+            margin-bottom: 30px; 
         }
-
-        /* Zig-Zag layout for PC */
-        .founder-row.reverse-layout {
-            flex-direction: row-reverse;
+        .vision-text-box { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            color: #bbb; 
+            line-height: 1.8; 
+            font-size: 1.1rem; 
         }
-        
-        .founder-info { flex: 1; text-align: left; }
-        .founder-info h4 { font-size: 2.2rem; margin-bottom: 5px; color: #fff; font-family: 'Playfair Display', serif; }
-        .founder-info span { color: var(--gold); display: block; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: 600; }
-        .founder-info p { color: #bbb; line-height: 1.8; font-size: 1rem; }
-
-        /* Centers the portrait image in its column */
-        .founder-img-wrapper { 
-            flex: 1; 
-            width: 100%; 
-            display: flex; 
-            justify-content: center; 
+        .vision-text-box p { 
+            margin-bottom: 25px; 
         }
-        
-        /* THE PORTRAIT FIX */
-        .founder-img-card {
-            width: 100%;
-            max-width: 400px; /* Limits width so it doesn't look huge on PC */
-            aspect-ratio: 2/3; /* Forces a Portrait (Vertical) shape */
-            height: auto;      /* Height adjusts automatically based on width */
-            
-            background-color: #222;
-            border: 1px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            color: #fff;
-            flex-direction: column;
-            text-align: center;
-            
-            /* Crucial for Natural Look */
-            background-size: cover; 
-            background-position: center top; /* Focuses on the face/top of image */
-            
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: transform 0.4s;
-            border-radius: 4px;
-        }
-        .founder-img-card:hover { transform: scale(1.02); border-color: #fff; }
-
-        .founder-name-box {
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            padding: 40px 10px 20px 10px;
-        }
-        .founder-name-box p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            line-height: 1.1;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        /* --- MOBILE ADJUSTMENTS --- */
-        @media (max-width: 900px) {
-            .founder-row, .founder-row.reverse-layout {
-                flex-direction: column-reverse; /* Text bottom, Image top */
-                text-align: center;
-                gap: 30px;
-            }
-            .founder-info { text-align: center; }
-            
-            /* On mobile, we let the image be a comfortable portrait size */
-            .founder-img-card { 
-                max-width: 350px; /* Perfect width for mobile screens */
-            }
+        .vision-text-box strong { 
+            color: #fff; 
+            font-weight: 500; 
         }
 
         /* --- Footer --- */
@@ -386,7 +317,7 @@
             .hero-buttons { flex-direction: column; width: 100%; }
             .hero h1 { font-size: 2.2rem; }
             
-            .intro, .location-section, .rooms-section, .dining-section, .events-section, .founders-section, .wedding-content {
+            .intro, .location-section, .rooms-section, .dining-section, .events-section, .vision-section, .wedding-content {
                 padding: 60px 20px;
             }
             
@@ -394,18 +325,11 @@
             .dining-features { grid-template-columns: 1fr; }
             .rooms-grid, .events-grid, .triangle-grid { grid-template-columns: 1fr; }
             
-            /* FOUNDER MOBILE FIX */
-            .founder-row { 
-                flex-direction: column-reverse; /* Puts image ON TOP of text */
-                text-align: center;
-                gap: 30px;
-            }
-            .founder-img-card { height: 350px; }
-            
             .wedding-content h2 { font-size: 2rem; }
+            .vision-section h2 { font-size: 2.2rem; }
         }
-/* --- FIX FOR IPAD / IPHONE BACKGROUNDS --- */
-        /* This detects touch devices and tablets */
+
+        /* --- FIX FOR IPAD / IPHONE BACKGROUNDS --- */
         @media (hover: none), (max-width: 1366px) {
             .hero, .dining-section {
                 background-attachment: scroll !important;
@@ -429,7 +353,7 @@
             <li><a href="#events">Events</a></li>
             <li><a href="#weddings">Weddings</a></li>
         </ul>
-        <a href="#rooms" class="btn-gold">Book Your Stay</a>
+        <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-gold" target="_blank">Book Your Stay</a>
     </nav>
 
     <section class="hero">
@@ -437,7 +361,7 @@
         <h1>THE WARWICK HOTEL</h1>
         <p>Under new ownership since February 5th. We are bringing a fresh vision to Kenilworth, refining our service, dining, and guest experience to create a truly personal stay.</p>
         <div class="hero-buttons">
-            <a href="#rooms" class="btn-gold">Check Availability</a>
+            <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-gold" target="_blank">Check Availability</a>
             <a href="#about" class="btn-outline" style="color:white; border-color:white;">Our Vision</a>
         </div>
     </section>
@@ -476,7 +400,7 @@
 
     <section class="rooms-section" id="rooms">
         <div class="rooms-header">
-            <h2>76 Bedrooms. Infinite Comfort.</h2>
+            <h2>79 Bedrooms. Infinite Comfort.</h2>
             <p style="color:#aaa; max-width:700px; margin:0 auto;">A hop, skip, and a jump from the Castles and the NEC. Whether you need a family base for adventure or a cost-effective rest stop.</p>
         </div>
 
@@ -491,7 +415,7 @@
                         <i class="fa-solid fa-bed"></i>
                         <i class="fa-solid fa-tv"></i>
                     </div>
-                    <a href="mailto:enquiries@thewarwickhotel.co.uk" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;">View Details</a>
+                    <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;" target="_blank">View Details</a>
                 </div>
             </div>
 
@@ -505,7 +429,7 @@
                         <i class="fa-solid fa-couch"></i>
                         <i class="fa-solid fa-bath"></i>
                     </div>
-                    <a href="mailto:enquiries@thewarwickhotel.co.uk" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;">View Details</a>
+                    <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;" target="_blank">View Details</a>
                 </div>
             </div>
 
@@ -519,7 +443,7 @@
                         <i class="fa-solid fa-coffee"></i>
                         <i class="fa-solid fa-shower"></i>
                     </div>
-                    <a href="mailto:enquiries@thewarwickhotel.co.uk" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;">View Details</a>
+                    <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-outline" style="font-size:0.7rem; padding:8px 20px;" target="_blank">View Details</a>
                 </div>
             </div>
         </div>
@@ -528,29 +452,31 @@
     <section class="dining-section" id="dining">
         <div class="dining-container">
             <div class="dining-text">
-                <h2>The Phantom Coachman</h2>
-                <h3>Reimagined for the Modern Local</h3>
+                <h2>The Pearl at The Warwick</h2>
+                <h3>British Classics & Sri Lankan Fusion</h3>
                 <p style="color:#ddd; margin-bottom:20px; font-weight:500;">
-                    We are restoring the heartbeat of Kenilworth. The Phantom Coachman is no longer just a hotel bar; it is a destination. 
-                    From the first espresso of the morning to the last Jolly Full Drink at night, we invite you to relax in our upscaled, cosy atmosphere.
+                    A traditional pub with ancient colonial roots. We serve a vibrant mix of British classics alongside authentic Sri Lankan fusion, perfectly paired with fine wine and a curated selection of beers and spirits.
                 </p>
                 <p style="color:#ddd; margin-bottom:30px;">
-                    Whether you are gathering for a hearty Sunday Roast, catching the live sport with a pint of cask ale, or celebrating with friends, 
-                    our doors are open.
+                    Whether you are organising a birthday celebration, looking to enjoy your Friday evenings in style, or simply gathering with friends, our doors are open.
                 </p>
                 
                 <div class="dining-features">
                     <div class="feat-item"><i class="fa-solid fa-mug-hot"></i> <span>All-Day Dining</span></div>
-                    <div class="feat-item"><i class="fa-solid fa-beer-mug-empty"></i> <span>Your favourite Beers & Wines</span></div>
+                    <div class="feat-item"><i class="fa-solid fa-wine-glass"></i> <span>A selection of Beers, Fine Wines & Spirits</span></div>
                     <div class="feat-item"><i class="fa-solid fa-tv"></i> <span>Live Sport Lounge</span></div>
-                    <div class="feat-item"><i class="fa-solid fa-fire"></i> <span>Cosy Fireplace</span></div>
+                    <div class="feat-item"><i class="fa-solid fa-cake-candles"></i> <span>Private Celebrations</span></div>
                 </div>
 
-                <a href="mailto:enquiries@thewarwickhotel.co.uk" class="btn-gold">View The Menu</a>
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: flex-start;">
+                    <a href="Pearl_Menu.pdf" class="btn-gold" target="_blank">View The Pearl Menu</a>
+                    <a href="Pub_Menu.pdf" class="btn-gold" target="_blank">View The Classic Pub Food Menu</a>
+                    <a href="Mothers_day_menu.pdf" class="btn-gold" target="_blank">View Our Mother's Day Menu</a>
+                </div>
             </div>
 
             <div class="dining-card">
-                <i class="fa-solid fa-utensils" style="font-size:3rem; color:var(--gold); margin-bottom:20px; text-shadow:2px 2px 4px black;"></i>
+                <img src="Pearl_Logo.png" alt="The Pearl Logo" style="width: 150px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
                 <h4>A Place to Come Together</h4>
                 <p><strong>Breakfast:</strong> 7:00am - 11:00am</p>
                 <p><strong>All Day Menu:</strong> 12:00pm - 9:30pm</p>
@@ -610,42 +536,13 @@
         </div>
     </section>
 
-    <section class="founders-section">
-        <div class="founders-header">
-            <h2>The Visionaries Behind The Brand</h2>
-            <p>The Colombo Edition was founded in 2022 by Nirmal & Hannah Vivekananthan with a singular, bold ambition: to make hospitality great again.</p>
-        </div>
-
-        <div class="founders-container">
-            <div class="founder-row">
-                <div class="founder-info">
-                    <h4>Nirmal Vivekananthan</h4>
-                    <span>Founder & CEO</span>
-                    <p>With over 21 years of high-impact experience, Nirmal is a veteran of the industry. Having served as Head of Finance for <strong>Criterion</strong> and Vice President for <strong>Selina</strong> (EMEA), he has managed finance & operations for global giants like <strong>Hilton, Accor, and IHG</strong>. Nirmal ensures The Warwick operates with world-class efficiency, passing the value directly to our guests.</p>
-                </div>
-                <div class="founder-img-wrapper">
-                    <div class="founder-img-card" style="background-image: url('Nirmal.jpg');">
-                        <div class="founder-name-box">
-                            <p>Nirmal<br>Vivekananthan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="founder-row reverse-layout">
-                <div class="founder-info">
-                    <h4>Hannah Vivekananthan</h4>
-                    <span>Managing Partner</span>
-                    <p>Hannah is the soul of the Colombo Edition. While Nirmal drives financial & operational excellence, Hannah ensures the guest experience remains warm, personal, and family-oriented. Together, they are revitalizing this local landmark.</p>
-                </div>
-                <div class="founder-img-wrapper">
-                    <div class="founder-img-card" style="background-image: url('Hannah.jpg');">
-                        <div class="founder-name-box">
-                            <p>Hannah<br>Vivekananthan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="vision-section" id="vision">
+        <div class="divider"></div>
+        <h2>The Vision Behind The Brand</h2>
+        <div class="vision-text-box">
+            <p>Founded by the <strong>Colombo Edition</strong>, our ambition is simple yet profound: to redefine hospitality by bringing genuine warmth and homely care back to the forefront of the guest experience.</p>
+            <p>Drawing inspiration from <strong>traditional Sri Lankan hospitality</strong>—a culture globally renowned for producing some of the world's most gracious and attentive hosts—we are elevating the standards of this historic local landmark. We have set about combining an uncompromising quality of service and product with a deeply personal touch.</p>
+            <p>When you stay or dine at The Warwick, you aren't just a customer; you are a welcomed guest in our home.</p>
         </div>
     </section>
 
@@ -654,9 +551,10 @@
         <div class="contact-info">
             <p>Meer End Road, Kenilworth, Warwickshire, CV8 1NP</p>
             <p>Email: <a href="mailto:enquiries@thewarwickhotel.co.uk">enquiries@thewarwickhotel.co.uk</a></p>
+	<p>Phone: +44 1926 484234</p>	
         </div>
         
-        <a href="#rooms" class="btn-gold">Book A Room</a>
+        <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-gold" target="_blank">Book A Room</a>
 
         <div class="socials">
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -668,4 +566,3 @@
 
 </body>
 </html>
-
