@@ -6,7 +6,79 @@
     <title>The Warwick Hotel | By Colombo Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>The Warwick Hotel Kenilworth | Affordable Luxury & Events</title>
     
+    <meta name="description" content="Experience affordable luxury at The Warwick Hotel in Kenilworth. Offering 79 comfortable bedrooms, grand events, weddings, and dining at The Pearl. Book your stay today.">
+    
+    <meta name="keywords" content="Warwick Hotel, Kenilworth hotel, hotel near NEC, Warwick Castle hotel, Warwickshire Park Hotel, The Pearl pub, event venue Warwickshire">
+    
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="The Warwick Hotel Kenilworth">
+    <meta property="og:description" content="A new era of hospitality. Book your stay, plan an event, or dine at The Pearl.">
+    <meta property="og:image" content="Facade.jpg"> <meta property="og:url" content="https://thewarwickhotel.co.uk">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "The Warwick Hotel",
+      "description": "Affordable luxury destination in the heart of England, featuring 79 bedrooms, event spaces, and The Pearl pub.",
+      "image": "https://thewarwickhotel.co.uk/Facade.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Meer End Road",
+        "addressLocality": "Kenilworth",
+        "addressRegion": "Warwickshire",
+        "postalCode": "CV8 1NP",
+        "addressCountry": "UK"
+      },
+      "telephone": "+44 1926 484234",
+      "url": "https://thewarwickhotel.co.uk",
+      "priceRange": "$$",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free Wi-Fi",
+          "value": "True"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Restaurant",
+          "value": "True"
+        }
+      ]
+    }
+    </script>
+    ```
+
+### Step 2: Optimize Your Images (Alt Tags)
+Search engines cannot "see" images; they read text. For images that are placed using the `<img src="...">` tag (like your Pearl logo and Event photos), ensure the `alt="..."` text is highly descriptive.
+
+* **Change this:** `<img src="Pearl_Logo.png" alt="The Pearl Logo">`
+* **To this:** `<img src="Pearl_Logo.png" alt="The Pearl at The Warwick Hotel Kenilworth - British Classics and Sri Lankan Fusion">`
+* **Do the same for the event images.** Instead of `alt="Ballroom"`, use `alt="Grand Ballroom event space at The Warwick Hotel Kenilworth"`.
+
+### Step 3: Make Search Engines Notice You (Off-Page SEO)
+
+Code alone won't make you show up on page 1 tomorrow. Once your site is live, you **must** do the following:
+
+1.  **Google Search Console (Crucial):**
+    * Go to [Google Search Console](https://search.google.com/search-console/about).
+    * Add your domain (`thewarwickhotel.co.uk`).
+    * Verify ownership (Google will give you a TXT record to add to your GoDaddy DNS settings, just like you did for GitHub).
+    * Click "URL Inspection", paste your website URL, and click **"Request Indexing"**. This forces Google's bots to crawl your site immediately instead of waiting weeks.
+2.  **Google Business Profile (Google Maps):**
+    * Because the hotel was formerly "Warwickshire Park Hotel", you need to claim that listing on Google Maps and rename it, OR create a brand new **Google Business Profile** for "The Warwick Hotel".
+    * Make sure the address, phone number, and website link *exactly* match what is on your website. Google uses this to rank local searches (e.g., "Hotels near Kenilworth").
+3.  **Bing Webmaster Tools:**
+    * Go to [Bing Webmaster Tools](https://www.bing.com/webmasters/about). You can actually import your setup directly from Google Search Console with one click. This covers Yahoo and Bing searches.
+
+### Summary of what makes this code "SEO Ready":
+* **The Schema Script (`application/ld+json`)** translates your business details into machine code for Google's algorithm.
+* **The Meta Description** gives you a readable pitch on the search results page.
+* **The Title** now includes "Kenilworth", helping you rank for local geographic searches.
     <style>
         :root {
             --gold: #D4AF37;
@@ -478,7 +550,7 @@
             <div class="dining-card">
                 <img src="Pearl_Logo.png" alt="The Pearl Logo" style="width: 150px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
                 <h4>A Place to Come Together</h4>
-                <p><strong>Breakfast:</strong> 7:00am - 10:30am</p>
+                <p><strong>Breakfast:</strong> 7:00am - 11:00am</p>
                 <p><strong>All Day Menu:</strong> 12:00pm - 9:30pm</p>
                 <p><strong>The Bar:</strong> Open until late</p>
                 <br>
@@ -566,4 +638,3 @@
 
 </body>
 </html>
-
