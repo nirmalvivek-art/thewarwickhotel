@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Warwick Hotel | By Colombo Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <title>The Warwick Hotel Kenilworth | Affordable Luxury & Events</title>
-    
     <meta name="description" content="Experience affordable luxury at The Warwick Hotel in Kenilworth. Offering 79 comfortable bedrooms, grand events, weddings, and dining at The Pearl. Book your stay today.">
-    
     <meta name="keywords" content="Warwick Hotel, Kenilworth hotel, hotel near NEC, Warwick Castle hotel, Warwickshire Park Hotel, The Pearl pub, event venue Warwickshire">
-    
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="The Warwick Hotel Kenilworth">
     <meta property="og:description" content="A new era of hospitality. Book your stay, plan an event, or dine at The Pearl.">
-    <meta property="og:image" content="Facade.jpg"> <meta property="og:url" content="https://thewarwickhotel.co.uk">
+    <meta property="og:image" content="Facade.jpg"> 
+    <meta property="og:url" content="https://thewarwickhotel.co.uk">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -51,34 +47,50 @@
       ]
     }
     </script>
-    ```
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link type="text/css" href="https://static.cubilis.eu/jquery/ui/smoothness/jquery-ui-1.8.16.custom.css" rel="Stylesheet" />
+    <link type="text/css" href="https://static.cubilis.eu/jquery/defaultView.css" rel="Stylesheet" />
+    <script type="text/javascript" src="https://static.cubilis.eu/jquery/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="https://static.cubilis.eu/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="https://static.cubilis.eu/jquery/date.js"></script>
 
-### Step 2: Optimize Your Images (Alt Tags)
-Search engines cannot "see" images; they read text. For images that are placed using the `<img src="...">` tag (like your Pearl logo and Event photos), ensure the `alt="..."` text is highly descriptive.
+    <script type="text/javascript">
+        var _TAAL = 'en';
 
-* **Change this:** `<img src="Pearl_Logo.png" alt="The Pearl Logo">`
-* **To this:** `<img src="Pearl_Logo.png" alt="The Pearl at The Warwick Hotel Kenilworth - British Classics and Sri Lankan Fusion">`
-* **Do the same for the event images.** Instead of `alt="Ballroom"`, use `alt="Grand Ballroom event space at The Warwick Hotel Kenilworth"`.
+        $(document).ready(function () {
+            $("#startdate").datepicker({
+                dateFormat: "dd-mm-yy", buttonImage: "https://static.cubilis.eu/images/datepicker_light.png",
+                showOn: "both", buttonImageOnly: true, minDate: 0
+            });
+            $("#enddate").datepicker({
+                dateFormat: "dd-mm-yy", buttonImage: "https://static.cubilis.eu/images/datepicker_light.png",
+                showOn: "both", buttonImageOnly: true, minDate: 1
+            });
+            var today = new Date();
+            $("#startdate").datepicker("setDate", new Date());
+            var tomorrow = today.add(1).days();
+            $("#enddate").datepicker("setDate", tomorrow);
 
-### Step 3: Make Search Engines Notice You (Off-Page SEO)
+            $("#startdate").change(function () {
+                var d = Date.parseExact($(this).val(), "dd-MM-yyyy");
+                d = d.add(1).days();
+                $("#enddate").datepicker("option", "minDate", d);
+            });
+        });
 
-Code alone won't make you show up on page 1 tomorrow. Once your site is live, you **must** do the following:
+        function fastbookerFormatDate(date) {
+            var dateobj = Date.parseExact(date, "dd-MM-yyyy");
+            return dateobj.getFullYear() + "-" + (dateobj.getMonth() + 1) + "-" + dateobj.getDate();
+        }
 
-1.  **Google Search Console (Crucial):**
-    * Go to [Google Search Console](https://search.google.com/search-console/about).
-    * Add your domain (`thewarwickhotel.co.uk`).
-    * Verify ownership (Google will give you a TXT record to add to your GoDaddy DNS settings, just like you did for GitHub).
-    * Click "URL Inspection", paste your website URL, and click **"Request Indexing"**. This forces Google's bots to crawl your site immediately instead of waiting weeks.
-2.  **Google Business Profile (Google Maps):**
-    * Because the hotel was formerly "Warwickshire Park Hotel", you need to claim that listing on Google Maps and rename it, OR create a brand new **Google Business Profile** for "The Warwick Hotel".
-    * Make sure the address, phone number, and website link *exactly* match what is on your website. Google uses this to rank local searches (e.g., "Hotels near Kenilworth").
-3.  **Bing Webmaster Tools:**
-    * Go to [Bing Webmaster Tools](https://www.bing.com/webmasters/about). You can actually import your setup directly from Google Search Console with one click. This covers Yahoo and Bing searches.
-
-### Summary of what makes this code "SEO Ready":
-* **The Schema Script (`application/ld+json`)** translates your business details into machine code for Google's algorithm.
-* **The Meta Description** gives you a readable pitch on the search results page.
-* **The Title** now includes "Kenilworth", helping you rank for local geographic searches.
+        function submitmyform(form) {
+            window.location = form.action + "?lang=" + _TAAL + "&Arrival=" + fastbookerFormatDate($("#startdate").val()) + "&Departure=" + fastbookerFormatDate($("#enddate").val());
+            return false;
+        }
+    </script>
     <style>
         :root {
             --gold: #D4AF37;
@@ -206,6 +218,60 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
         }
         .hero h3 { font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 400; color: var(--gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; text-shadow: 1px 1px 5px rgba(0,0,0,1); }
         .hero p { color: #ddd; margin-bottom: 40px; max-width: 700px; font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        
+        /* --- BOOKING BAR WIDGET --- */
+        .booking-bar {
+            background-color: rgba(26, 26, 26, 0.85);
+            padding: 20px 30px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            margin-bottom: 25px;
+        }
+        .booking-inputs {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .input-group label {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .input-group input {
+            padding: 12px 15px;
+            font-family: 'Montserrat', sans-serif;
+            border: 1px solid #555;
+            background: #111;
+            color: #fff;
+            font-size: 1rem;
+            width: 150px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: var(--gold);
+        }
+        .ui-datepicker-trigger {
+            margin-left: -35px;
+            margin-bottom: -5px;
+            cursor: pointer;
+            vertical-align: middle;
+            position: relative;
+            z-index: 10;
+        }
+
         .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
 
         /* --- Intro Section --- */
@@ -216,7 +282,7 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
         .divider { height: 2px; width: 60px; background-color: var(--gold); margin: 0 auto 30px auto; }
         
         /* --- Location (Golden Triangle) --- */
-        .location-section { padding: 100px 50px; background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)), url('https://plus.unsplash.com/premium_photo-1667126445419-4c8870bf9597?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; text-align: center; }
+        .location-section { padding: 100px 50px; background-image: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)), url('https://plus.unsplash.com/premium_photo-1667126445419-4c8870bf9597?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; text-align: center; }
         .triangle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         
         .loc-card { padding: 30px; border: 1px solid #333; transition: 0.4s; background: #222; }
@@ -399,6 +465,12 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
             
             .wedding-content h2 { font-size: 2rem; }
             .vision-section h2 { font-size: 2.2rem; }
+
+            /* Booking Bar Mobile Tweaks */
+            .booking-bar { width: 100%; padding: 20px 15px; }
+            .input-group { width: 100%; }
+            .input-group input { width: 100%; }
+            .ui-datepicker-trigger { right: 10px; margin-left: -35px; }
         }
 
         /* --- FIX FOR IPAD / IPHONE BACKGROUNDS --- */
@@ -432,8 +504,24 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
         <h3>Welcome to the new</h3>
         <h1>THE WARWICK HOTEL</h1>
         <p>Under new ownership since February 5th. We are bringing a fresh vision to Kenilworth, refining our service, dining, and guest experience to create a truly personal stay.</p>
+        
+        <div class="booking-bar">
+            <form method="get" action="https://bookingengine.mylighthouse.com/10821/Rooms/Select" onsubmit="return submitmyform(this);">
+                <div class="booking-inputs">
+                    <div class="input-group">
+                        <label>Arrival</label>
+                        <input type="text" name="startdate" id="startdate" readonly="readonly" />
+                    </div>
+                    <div class="input-group">
+                        <label>Departure</label>
+                        <input type="text" name="enddate" id="enddate" readonly="readonly" />
+                    </div>
+                    <input type="submit" class="btn-gold" value="Check Availability" id="btnSubmit" style="padding: 12px 25px; border: none; font-size: 1rem;" />
+                </div>
+            </form>
+        </div>
+
         <div class="hero-buttons">
-            <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-gold" target="_blank">Check Availability</a>
             <a href="#about" class="btn-outline" style="color:white; border-color:white;">Our Vision</a>
         </div>
     </section>
@@ -548,7 +636,7 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
             </div>
 
             <div class="dining-card">
-                <img src="Pearl_Logo.png" alt="The Pearl Logo" style="width: 150px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                <img src="Pearl_Logo.png" alt="The Pearl at The Warwick Hotel Kenilworth - British Classics and Sri Lankan Fusion" style="width: 150px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
                 <h4>A Place to Come Together</h4>
                 <p><strong>Breakfast:</strong> 7:00am - 11:00am</p>
                 <p><strong>All Day Menu:</strong> 12:00pm - 9:30pm</p>
@@ -568,7 +656,7 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
 
         <div class="events-grid">
             <div class="event-card">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ballroom">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grand Ballroom event space at The Warwick Hotel Kenilworth">
                 <div class="event-overlay">
                     <h3>The Grand Ballroom</h3>
                     <p>Elegance on a grand scale. Perfect for charity galas, large parties, and lavish receptions for up to 250 guests.</p>
@@ -576,7 +664,7 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
                 </div>
             </div>
             <div class="event-card">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Conference">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Conference and meeting rooms at The Warwick Hotel Kenilworth">
                 <div class="event-overlay">
                     <h3>Conferences & Meetings</h3>
                     <p>Strategically located near the NEC. High-speed Wi-Fi, flexible layouts, and premium catering for your delegates.</p>
@@ -584,10 +672,10 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
                 </div>
             </div>
             <div class="event-card">
-                <img src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Private Dining">
+                <img src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Private dining and party space at The Warwick Hotel Kenilworth">
                 <div class="event-overlay">
                     <h3>Private Dining & Parties</h3>
-                    <p>Celebrate in style. Private areas available within The Phantom Coachman or our dedicated function suites.</p>
+                    <p>Celebrate in style. Private areas available within The Pearl or our dedicated function suites.</p>
                     <a href="mailto:enquiries@thewarwickhotel.co.uk" class="btn-gold" style="padding:5px 15px; font-size:0.7rem;">Learn More</a>
                 </div>
             </div>
@@ -623,7 +711,7 @@ Code alone won't make you show up on page 1 tomorrow. Once your site is live, yo
         <div class="contact-info">
             <p>Meer End Road, Kenilworth, Warwickshire, CV8 1NP</p>
             <p>Email: <a href="mailto:enquiries@thewarwickhotel.co.uk">enquiries@thewarwickhotel.co.uk</a></p>
-	<p>Phone: +44 1926 484234</p>	
+            <p>Phone: +44 1926 484234</p>	
         </div>
         
         <a href="https://bookingengine.mylighthouse.com/warwickshire-park-hotel-kenilworth-by-belvilla-london" class="btn-gold" target="_blank">Book A Room</a>
