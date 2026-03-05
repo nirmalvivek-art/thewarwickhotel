@@ -62,12 +62,12 @@
 
         $(document).ready(function () {
             $("#startdate").datepicker({
-                dateFormat: "dd-mm-yy", buttonImage: "https://static.cubilis.eu/images/datepicker_light.png",
-                showOn: "both", buttonImageOnly: true, minDate: 0
+                dateFormat: "dd-mm-yy", 
+                minDate: 0
             });
             $("#enddate").datepicker({
-                dateFormat: "dd-mm-yy", buttonImage: "https://static.cubilis.eu/images/datepicker_light.png",
-                showOn: "both", buttonImageOnly: true, minDate: 1
+                dateFormat: "dd-mm-yy", 
+                minDate: 1
             });
             var today = new Date();
             $("#startdate").datepicker("setDate", new Date());
@@ -87,8 +87,9 @@
         }
 
         function submitmyform(form) {
-            window.location = form.action + "?lang=" + _TAAL + "&Arrival=" + fastbookerFormatDate($("#startdate").val()) + "&Departure=" + fastbookerFormatDate($("#enddate").val());
-            return false;
+            var targetUrl = form.action + "?lang=" + _TAAL + "&Arrival=" + fastbookerFormatDate($("#startdate").val()) + "&Departure=" + fastbookerFormatDate($("#enddate").val());
+            window.open(targetUrl, '_blank'); // <-- This opens it in a new window
+            return false; // Keeps the current page from reloading
         }
     </script>
     <style>
@@ -221,13 +222,10 @@
         
         /* --- BOOKING BAR WIDGET --- */
         .booking-bar {
-            background-color: rgba(26, 26, 26, 0.85);
-            padding: 20px 30px;
-            border: 1px solid var(--gold);
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            backdrop-filter: blur(8px);
+            background-color: transparent; 
+            padding: 20px 0;
             margin-bottom: 25px;
+            width: 100%;
         }
         .booking-inputs {
             display: flex;
@@ -248,28 +246,38 @@
             letter-spacing: 1px;
             margin-bottom: 8px;
             font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
+        }
+        .input-wrapper {
+            position: relative; 
         }
         .input-group input {
             padding: 12px 15px;
+            padding-right: 40px; 
             font-family: 'Montserrat', sans-serif;
-            border: 1px solid #555;
-            background: #111;
+            border: 1px solid var(--gold);
+            background: rgba(18, 18, 18, 0.7); 
+            backdrop-filter: blur(5px);
             color: #fff;
             font-size: 1rem;
-            width: 150px;
+            width: 170px;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            border-radius: 4px;
+            cursor: pointer;
         }
         .input-group input:focus {
-            border-color: var(--gold);
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
-        .ui-datepicker-trigger {
-            margin-left: -35px;
-            margin-bottom: -5px;
-            cursor: pointer;
-            vertical-align: middle;
-            position: relative;
-            z-index: 10;
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            pointer-events: none; 
+            font-size: 1.1rem;
         }
 
         .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
@@ -467,10 +475,11 @@
             .vision-section h2 { font-size: 2.2rem; }
 
             /* Booking Bar Mobile Tweaks */
-            .booking-bar { width: 100%; padding: 20px 15px; }
+            .booking-inputs { flex-direction: column; align-items: stretch; gap: 15px; }
             .input-group { width: 100%; }
+            .input-wrapper { width: 100%; display: block; }
             .input-group input { width: 100%; }
-            .ui-datepicker-trigger { right: 10px; margin-left: -35px; }
+            #btnSubmit { width: 100%; margin-top: 5px; }
         }
 
         /* --- FIX FOR IPAD / IPHONE BACKGROUNDS --- */
@@ -510,13 +519,19 @@
                 <div class="booking-inputs">
                     <div class="input-group">
                         <label>Arrival</label>
-                        <input type="text" name="startdate" id="startdate" readonly="readonly" />
+                        <div class="input-wrapper">
+                            <input type="text" name="startdate" id="startdate" readonly="readonly" />
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                        </div>
                     </div>
                     <div class="input-group">
                         <label>Departure</label>
-                        <input type="text" name="enddate" id="enddate" readonly="readonly" />
+                        <div class="input-wrapper">
+                            <input type="text" name="enddate" id="enddate" readonly="readonly" />
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                        </div>
                     </div>
-                    <input type="submit" class="btn-gold" value="Check Availability" id="btnSubmit" style="padding: 12px 25px; border: none; font-size: 1rem;" />
+                    <input type="submit" class="btn-gold" value="Check Availability" id="btnSubmit" style="padding: 12px 25px; border: none; font-size: 1rem; border-radius: 4px;" />
                 </div>
             </form>
         </div>
