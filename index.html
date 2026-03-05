@@ -63,10 +63,12 @@
         $(document).ready(function () {
             $("#startdate").datepicker({
                 dateFormat: "dd-mm-yy", 
+                showOn: "focus", /* This stops the ugly image from generating */
                 minDate: 0
             });
             $("#enddate").datepicker({
                 dateFormat: "dd-mm-yy", 
+                showOn: "focus", /* This stops the ugly image from generating */
                 minDate: 1
             });
             var today = new Date();
@@ -88,8 +90,8 @@
 
         function submitmyform(form) {
             var targetUrl = form.action + "?lang=" + _TAAL + "&Arrival=" + fastbookerFormatDate($("#startdate").val()) + "&Departure=" + fastbookerFormatDate($("#enddate").val());
-            window.open(targetUrl, '_blank'); // <-- This opens it in a new window
-            return false; // Keeps the current page from reloading
+            window.open(targetUrl, '_blank'); 
+            return false; 
         }
     </script>
     <style>
@@ -119,13 +121,6 @@
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-        }
-
-        /* --- Utilities --- */
-        .img-cover {
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         /* --- Navigation --- */
@@ -220,7 +215,7 @@
         .hero h3 { font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 400; color: var(--gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; text-shadow: 1px 1px 5px rgba(0,0,0,1); }
         .hero p { color: #ddd; margin-bottom: 40px; max-width: 700px; font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
         
-        /* --- BOOKING BAR WIDGET --- */
+        /* --- BOOKING BAR WIDGET (TRANSPARENT & RESPONSIVE) --- */
         .booking-bar {
             background-color: transparent; 
             padding: 20px 0;
